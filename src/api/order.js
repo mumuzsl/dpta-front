@@ -26,7 +26,7 @@ export function getStatis(query) {
 
 export function getComm(id, query) {
     return request({
-        url: 'http://localhost:8080/open/goods/' + id,
+        url: '/open/goods/' + id,
         method: 'get',
         params: query
     })

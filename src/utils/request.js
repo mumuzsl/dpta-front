@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { MessageBox, Message } from 'element-ui'
 import store from '@/store'
-import { getToken } from '@/utils/auth'
+import { removeToken, getToken } from '@/utils/auth'
 
 export function baseUrl() {
   return 'http://localhost:8081'
@@ -24,7 +24,9 @@ service.interceptors.request.use(
       // let each request carry token
       // ['X-Token'] is a custom headers key
       // please modify it according to the actual situation
-      config.headers['X-Token'] = getToken()
+      let token = getToken()
+      config.headers['X-Token'] = token
+      config.headers['Authorization'] = `Bearer ${token}`
     }
     return config
   },
@@ -81,13 +83,36 @@ service.interceptors.response.use(
     }
   },
   error => {
-    console.log('err' + error) // for debug
-    Message({
-      message: error.message,
-      type: 'error',
-      duration: 1 * 1000
-    })
-    return Promise.reject(error)
+    console.log("error", { error });
+
+    // 1️⃣ 网络 / 超时
+    if (!error.response) {
+      Message.error('网络异常，请稍后重试')
+      return Promise.reject(error)
+    }
+
+    const { status, data } = error.response
+
+    // 2️⃣ 统一提取错误文案（非常关键）
+    const msg =
+      data?.message ||
+      '请求失败'
+
+    // 3️⃣ token 失效 / 未登录
+    if (status === 401) {
+      Message.error(msg || '登录已过期，请重新登录')
+      removeToken()
+      store.dispatch('user/resetToken').then(() => {
+        location.reload()
+      })
+      return Promise.reject(data)
+    }
+
+    // 4️⃣ 其他业务 / 系统错误
+    Message.error(msg)
+
+    // 5️⃣ 只把后端 body 抛下去
+    return Promise.reject(data)
   }
 )
 
