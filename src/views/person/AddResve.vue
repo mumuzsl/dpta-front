@@ -106,7 +106,7 @@ export default {
           // return_url: window.location.href,
         };
         window.location.href =
-          "http://localhost:8081/distr/api/alipay/pay?url=http://localhost:9529/distr/&subPath=/person/resve&amount=" +
+          "http://localhost:8081/api/dpta/distr/api/alipay/pay?url=http://localhost:9529/distr/&subPath=/person/resve&amount=" +
           this.formData.payValue +
           "&token=" +
           getToken();

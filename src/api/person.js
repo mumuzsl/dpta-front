@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function getDetail(query) {
     return request({
-        url: '/distr/api/detail',
+        url: '/api/dpta/distr/api/detail',
         method: 'get'
     })
 }
@@ -16,7 +16,7 @@ export function getLevelIdOptions(query) {
 
 export function getStateOptions(query) {
     return request({
-        url: '/distr/api/detail',
+        url: '/api/dpta/distr/api/detail',
         method: 'get'
     })
 }
@@ -24,7 +24,7 @@ export function getStateOptions(query) {
 
 export function getResve(query) {
     return request({
-        url: '/distr/api/resve',
+        url: '/api/dpta/distr/api/resve',
         method: 'get',
         params: query
     })
@@ -32,7 +32,7 @@ export function getResve(query) {
 
 export function transfer(data) {
     return request({
-        url: '/distr/api/alipay/transfer',
+        url: '/api/dpta/distr/api/alipay/transfer',
         method: 'post',
         data
     })
@@ -40,7 +40,7 @@ export function transfer(data) {
 
 export function addResve(data) {
     return request({
-        url: 'distr/api/resve/add',
+        url: 'api/dpta/distr/api/resve/add',
         method: 'post',
         data
     })

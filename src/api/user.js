@@ -8,7 +8,7 @@ export function login(data) {
   form.append('password', data.password)
 
   return request({
-    url: '/oauth2/token',
+    url: '/api/dpta/oauth2/token',
     method: 'post',
     data: form,
     headers: {
@@ -23,7 +23,7 @@ export function login(data) {
 
 export function getInfo(token) {
   return request({
-    url: '/distr/info',
+    url: '/api/dpta/distr/info',
     method: 'get',
     params: { token }
   })

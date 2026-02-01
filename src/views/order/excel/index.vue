@@ -164,7 +164,7 @@ export default {
     },
     handleDownload() {
       var params = qs.stringify(this.formData, { indices: false });
-      window.location.href = baseUrl() + "/distr/api/download/excel?" + params;
+      window.location.href = baseUrl() + "/api/dpta/distr/api/download/excel?" + params;
     },
   },
 };

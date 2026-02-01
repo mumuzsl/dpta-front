@@ -3,7 +3,7 @@ import qs from 'qs'
 
 // export function getList(params) {
 //   return request({
-//     url: '/distr/api/order',
+//     url: '/api/dpta/distr/api/order',
 //     method: 'get',
 //     params
 //   })
@@ -11,7 +11,7 @@ import qs from 'qs'
 
 export function fetchList(query) {
   return request({
-    url: '/distr/api/order',
+    url: '/api/dpta/distr/api/order',
     method: 'get',
     params: query,
     paramsSerializer: params => {
@@ -22,7 +22,7 @@ export function fetchList(query) {
 
 export function getDetail(id) {
   return request({
-    url: '/distr/api/order/' + id,
+    url: '/api/dpta/distr/api/order/' + id,
     method: 'get',
   })
 }

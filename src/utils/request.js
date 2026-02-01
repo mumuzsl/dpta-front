@@ -4,7 +4,7 @@ import store from '@/store'
 import { removeToken, getToken } from '@/utils/auth'
 
 export function baseUrl() {
-  return 'http://localhost:8081'
+  return 'http://localhost:8080'
 }
 
 // create an axios instance

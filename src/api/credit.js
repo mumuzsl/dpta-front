@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function fetchData(query) {
     return request({
-        url: '/distr/api/credit',
+        url: '/api/dpta/distr/api/credit',
         method: 'get',
         params: query
     })
@@ -10,7 +10,7 @@ export function fetchData(query) {
 
 export function disable(id, query) {
     return request({
-        url: '/distr/api/credit/disable/' + id,
+        url: '/api/dpta/distr/api/credit/disable/' + id,
         method: 'get',
         params: query
     })
@@ -19,7 +19,7 @@ export function disable(id, query) {
 
 export function refund(data) {
     return request({
-        url: '/distr/api/credit/refund',
+        url: '/api/dpta/distr/api/credit/refund',
         method: 'post',
         data
     })
@@ -27,7 +27,7 @@ export function refund(data) {
 
 export function fetchDeal(query) {
     return request({
-        url: '/distr/api/deal',
+        url: '/api/dpta/distr/api/deal',
         method: 'get',
         params: query
     })
@@ -35,7 +35,7 @@ export function fetchDeal(query) {
 
 export function getDetail(id) {
     return request({
-        url: '/distr/api/deal/' + id,
+        url: '/api/dpta/distr/api/deal/' + id,
         method: 'get',
     })
 }

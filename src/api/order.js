@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function downloadExcel(query) {
     return request({
-        url: '/distr/api/download/excel',
+        url: '/api/dpta/distr/api/download/excel',
         method: 'get',
         params: query
     })
@@ -10,7 +10,7 @@ export function downloadExcel(query) {
 
 export function getExcelUrl(query) {
     return request({
-        url: '/distr/api/order/excel',
+        url: '/api/dpta/distr/api/order/excel',
         method: 'get',
         params: query
     })
@@ -18,7 +18,7 @@ export function getExcelUrl(query) {
 
 export function getStatis(query) {
     return request({
-        url: '/distr/api/order/statis',
+        url: '/api/dpta/distr/api/order/statis',
         method: 'get',
         params: query
     })
@@ -68,7 +68,7 @@ export function rejectReq(data) {
 
 export function getDate(params) {
     return request({
-        url: '/distr/api/order/statis/date',
+        url: '/api/dpta/distr/api/order/statis/date',
         method: 'get',
         params: params
     })
